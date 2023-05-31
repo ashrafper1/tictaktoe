@@ -1,0 +1,83 @@
+#copy and paste this code in any online compilers
+ali=['_','_','_','_','_','_','_','_','_']
+def board():
+    print(f'|  {ali[0]}  |  {ali[1]}   |  {ali[2]}')
+    print(f'|  {ali[3]}  |   {ali[4]}  |  {ali[5]}')
+    print(f'|  {ali[6]}  |   {ali[7]}  |  {ali[8]}')
+def winner():
+    c=0
+    if ali[0]==ali[1]==ali[2] and ali[0]!='_':
+        print(f'the winner is {ali[0]}')
+        c=1
+    elif ali[3]==ali[4]==ali[5] and ali[3]!='_':
+        print(f'the winner is {ali[3]}')  
+        c=1
+    elif ali[6]==ali[7]==ali[8] and ali[6]!='_':
+        print(f'the winner is {ali[6]}')        
+        c=1
+    elif ali[0]==ali[3]==ali[6] and ali[0]!='_':
+        print(f'the winner is {ali[0]}')       
+        c=1
+    elif ali[1]==ali[4]==ali[7] and ali[1]!='_':
+        print(f'the winner is {ali[1]}')    
+        c=1
+    elif ali[2]==ali[5]==ali[8] and ali[8]!='_':
+        print(f'the winner is {ali[2]}')   
+        c=1
+    elif ali[0]==ali[4]==ali[8] and ali[0]!='_':
+        print(f'the winner is {ali[8]}')    
+        c=1
+    elif ali[2]==ali[4]==ali[6] and ali[4]!='_':
+        print(f'the winner is {ali[6]}')
+        c=1
+    return c    
+        
+def game():   
+    i=0
+    player1=input("what do you want to be X or O ")
+    board()
+    if player1.lower()=='x':
+        for i in range(0,5):
+            print("player 1 turn")
+            po=int(input('enter the postion  : '))
+            ali[po-1]='X'
+            print('\n')
+            board()
+            print('\n')
+            a=winner()
+            print(a)
+            if a==1:
+                exit()
+            print('player two turn')
+            po=int(input('enter the postion  : '))
+            ali[po-1]='O'
+            print('\n')
+            board()
+            print('\n')
+            a=winner()
+            if a==1:
+                exit()
+    elif player1.lower()=='o':
+        for i in range(0,5):
+            print("player 1 turn")
+            po=int(input('enter the postion  : '))
+            ali[po-1]='O'
+            print('\n')
+            board()
+            print('\n')
+            a=winner()
+            print(a)
+            if a==1:
+                exit()
+            print('player two turn')
+            po=int(input('enter the postion  : '))
+            ali[po-1]='X'
+            print('\n')
+            board()
+            print('\n')
+            a=winner()
+            if a==1:
+                exit()            
+game()
+        
+print("wollah")       
